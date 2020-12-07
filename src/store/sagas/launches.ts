@@ -1,7 +1,7 @@
 import { call, put, CallEffect, PutEffect } from 'redux-saga/effects';
 import axios from "axios";
 
-import { Actions, IFetchAction, ILaunchData } from "../types.d";
+import { Actions, IFetchAction } from "../types.d";
 
 axios.defaults.baseURL = "https://api.spacexdata.com/v3";
 

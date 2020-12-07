@@ -1,9 +1,8 @@
 import React from "react";
-import styled from 'styled-components';
 
-import LoadingCard from '../../molecules/LoadingCard';
-
-interface IProps {}
+import LoadingCard from "../../molecules/LoadingCard";
+import { IProps } from "./types";
+import { CardsContainer } from "./styled";
 
 const LoadingCards: React.FC<IProps> = (props) => {
   return (
@@ -15,7 +14,4 @@ const LoadingCards: React.FC<IProps> = (props) => {
   );
 };
 
-const CardsContainer = styled.div`
-  margin: 20px 0;
-`
 export default LoadingCards;

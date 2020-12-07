@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
-import store from './store';
+import store from "./store";
 import colors from "./constants/styles/colors";
 import HomePage from "./components/pages/HomePage";
 
@@ -28,4 +28,9 @@ const App = () => (
   </BrowserRouter>
 );
 
-render(<Provider store={store}><App/></Provider>, document.getElementById("root"));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);

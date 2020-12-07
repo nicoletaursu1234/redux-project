@@ -8,11 +8,10 @@ const initialState: IFeedState = {
 }
 
 const feedReducer = (state = initialState, action?: ILaunchesAction) => {
-  console.log('state:', state);
   switch (action.type) {
     case Actions.SUCCESS:
       const { payload } = action;
-      
+
       return {
         launches: [...state.launches, ...payload.launchData],
         history: [...state.history, ...payload.historyData],

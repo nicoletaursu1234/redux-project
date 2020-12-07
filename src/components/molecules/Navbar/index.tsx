@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import React from "react";
 
-import Logo from "../../atoms/Logo";
-import UserInfo from "../../molecules/UserInfo";
-
-interface IProps {}
+import Logo from "components/atoms/Logo";
+import UserInfo from "components/molecules/UserInfo";
+import { Container, Wrapper } from "./styled";
+import { IProps } from "./types.d";
 
 const Navbar: React.FC<IProps> = () => {
   return (
@@ -16,21 +15,5 @@ const Navbar: React.FC<IProps> = () => {
     </Container>
   );
 };
-
-const Container = styled.nav`
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  align-items: center;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px 100px;
-  width: 100%;
-`;
 
 export default Navbar;

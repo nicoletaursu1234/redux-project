@@ -1,4 +1,4 @@
-import { Actions, IFetchAction, ILaunchData } from '../types.d';
+import { Actions, IFetchAction } from '../types.d';
 
 export const fetchPosts = (limit: number): IFetchAction => {
   return {

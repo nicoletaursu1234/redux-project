@@ -1,9 +1,6 @@
 import React from "react";
 
-interface IProps {
-  width?: string;
-  height?: string;
-}
+import { IProps } from './types.d';
 
 const ErrorIcon: React.FC<IProps> = ({ width, height }) => {
   return (
