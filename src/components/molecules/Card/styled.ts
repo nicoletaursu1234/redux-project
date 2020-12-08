@@ -38,11 +38,11 @@ export const InfoContainer = styled(Flex)`
   flex-direction: column;
   justify-content: space-around;
   background-color: white;
-  padding: 10px;
+  padding: 10px 15px;
 `;
 
 export const MainInfo = styled(Flex)`
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   div {
     display: flex;
@@ -86,14 +86,27 @@ export const Success = styled.p<{ success: Status }>`
   margin-left: 10px;
 `;
 
+export const LinkExternal = styled.a`
+  &:hover {
+    cursor: pointer;
+  }
+`
 export const SecondaryInfo = styled.p`
   font-size: 12px;
   color: #666;
 `;
 
 export const Description = styled.div`
-  width: 70%;
-  p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  div {
+    &:nth-child(1){
+      width: 80%;
+    }
+  }
+  p{
     font-size: 12px;
   }
 `;

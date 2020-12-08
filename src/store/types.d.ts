@@ -20,11 +20,12 @@ export interface ILaunchData {
     article_link: string,
     video_link: string,
   },
+  status?: string,
 }
 
 export interface IFetchAction {
   type: string;
-  payload: number;
+  limit: number;
 }
 
 export interface ILaunchesActionPayload {

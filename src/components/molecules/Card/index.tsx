@@ -1,8 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpaceShuttle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSpaceShuttle,
+  faExternalLinkAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
-import { IProps, Status } from "./types.d";
+import { IProps } from "./types.d";
 import {
   Wrapper,
   PhotoContainer,
@@ -10,9 +13,12 @@ import {
   MainInfo,
   FlightNumber,
   Success,
+  LinkExternal,
   SecondaryInfo,
   Description,
 } from "./styled";
+import WatchBox from "components/atoms/WatchBox";
+import colors from "constants/styles/colors";
 
 const Card: React.FC<IProps> = ({
   type,
@@ -23,13 +29,11 @@ const Card: React.FC<IProps> = ({
     launch_date_utc,
     details,
     links,
+    status,
   },
 }) => {
   const truncatedDetails =
     details?.length >= 160 ? details.substring(0, 160) + "..." : details;
-  let launchSuccessful: Status = launch_success ? "SUCCESS" : "FAILURE";
-
-  if (launch_success === null) launchSuccessful = "UNKNOWN";
 
   return (
     <Wrapper>
@@ -51,15 +55,24 @@ const Card: React.FC<IProps> = ({
           <div>
             <FlightNumber>{`#${flight_number}`}</FlightNumber>
             <p>{mission_name}</p>
-            <Success success={launchSuccessful}>
-              {type == "upcoming" ? "UNKNOWN" : launchSuccessful}
+            <Success success={status}>
+              {type == "upcoming" ? "UNKNOWN" : status}
             </Success>
           </div>
+          <LinkExternal href={links.article_link}>
+            <FontAwesomeIcon
+              icon={faExternalLinkAlt}
+              color={colors.darkerGray}
+            />
+          </LinkExternal>
         </MainInfo>
 
         <SecondaryInfo>Launch Date: {launch_date_utc}</SecondaryInfo>
         <Description>
-          <p>{truncatedDetails}</p>
+          <div>
+            <p>{truncatedDetails}</p>
+          </div>
+          <WatchBox videoLink={links.video_link} />
         </Description>
       </InfoContainer>
     </Wrapper>
